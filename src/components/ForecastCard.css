@@ -1,36 +1,104 @@
+/* 🌟 General Styles */
 .forecast-container {
     text-align: center;
     margin-top: 20px;
-  }
-  
-  .forecast-cards {
+}
+
+.forecast-cards {
     display: flex;
     justify-content: center;
     gap: 10px;
     padding: 10px;
-  }
-  
-  .forecast-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 10px;
+}
+
+/* 🌙 Dark Mode: Deep Purple Theme */
+.dark-mode {
+    background-color: #1a1a2e;  /* Darker background */
+    color: white; /* Text is white in dark mode */
+}
+
+.dark-mode .forecast-card {
+    background: linear-gradient(45deg, #2f4680, #500ae4);
+    color: white;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2); /* Glow effect */
+}
+
+/* ☀️ Light Mode: Sky Blue Theme */
+.light-mode {
+    background-color: #f0f8ff; /* Soft blue */
+    color: black; /* Text is black in light mode */
+}
+
+.light-mode .forecast-card {
+    background: linear-gradient(45deg, #87CEFA, #00BFFF);
+    color: black;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* 🎨 Forecast Card Styling */
+.forecast-card {
+    padding: 15px;
+    border-radius: 12px;
     text-align: center;
-    width: 80px; /* Smaller card size */
-    font-size: 14px;
-  }
-  
-  .forecast-card img {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .forecast-date {
-    font-weight: bold;
-    font-size: 12px;
-  }
-  
-  .forecast-temp {
+    width: 100px; /* Larger for better readability */
     font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.forecast-card:hover {
+    transform: scale(1.05); /* Subtle hover effect */
+}
+
+.forecast-card img {
+    width: 50px;
+    height: 50px;
+}
+
+.forecast-date {
     font-weight: bold;
-  }
-  
+    font-size: 14px;
+}
+
+.forecast-temp {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 🎛️ Search Bar Styling */
+.search-bar input {
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    padding-left: 25px;
+    font-size: 18px;
+    transition: background 0.3s ease;
+}
+
+/* Dark Mode Input */
+.dark-mode .search-bar input {
+    background: #222;
+    color: white;
+}
+
+/* Light Mode Input */
+.light-mode .search-bar input {
+    background: white;
+    color: black;
+}
+
+/* 🌗 Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(15deg);
+}

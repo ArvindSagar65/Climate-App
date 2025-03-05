@@ -10,7 +10,7 @@ import snow_icon from '../assets/snow.png';
 import wind_icon from '../assets/wind.png';
 import humidity_icon from '../assets/humidity.png';
 
-const UNSPLASH_ACCESS_KEY = "2OKlrd8K3YXK4IptExLjy7nk2UKpjUvjB0KI4DyeRv0";
+const UNSPLASH_ACCESS_KEY = "CanVI37Et_W56CRFk7cotDrQ-n25SwSWE6ocotUS_HY";
 
 const Weather = () => {
     const [weatherData, setWeatherData] = useState(null);
