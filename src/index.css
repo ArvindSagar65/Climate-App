@@ -1,0 +1,54 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.app{
+  min-height: 100vh;
+  display: grid;
+  background: #e2d4ff;
+}
+/* Default Light Mode */
+body.light {
+  background: #e2d4ff;
+  color: #000;
+}
+
+/* Dark Mode */
+body.dark {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Toggle Button */
+.theme-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark .theme-toggle {
+  background: #333;
+  color: #fff;
+}

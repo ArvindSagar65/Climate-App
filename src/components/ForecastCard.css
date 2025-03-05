@@ -1,0 +1,36 @@
+.forecast-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .forecast-cards {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .forecast-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80px; /* Smaller card size */
+    font-size: 14px;
+  }
+  
+  .forecast-card img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .forecast-date {
+    font-weight: bold;
+    font-size: 12px;
+  }
+  
+  .forecast-temp {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
