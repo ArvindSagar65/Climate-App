@@ -12,11 +12,10 @@
 .app{
   min-height: 100vh;
   display: grid;
-  background: #e2d4ff;
 }
 /* Default Light Mode */
 body.light {
-  background: #e2d4ff;
+  background: #ffffff;
   color: #000;
 }
 

@@ -7,6 +7,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    background-color: black;
     position: relative; 
 }
 
@@ -55,7 +56,15 @@
     min-height: 100vh;
     display: grid;
     place-items: center;
-    background: #e2d4ff;
+    transition: background-color 0.5s ease;
+}
+
+.app.light-mode {
+    background-color: white;
+}
+
+.app.dark-mode {
+    background-color: black;
 }
 
 .weather-data {
@@ -82,7 +91,6 @@
     width: 26px;
     margin-top: 10px;
 }
-
 
 .suggestions {
     position: absolute;
@@ -134,37 +142,13 @@
 .forecast-day p {
     margin: 5px 0;
 }
+
 .app-logo {
     width: 50px; 
     height: 50px;
     position: absolute;
     top: 10px;
     left: 10px; 
-  }
-  /* Default Light Mode */
-.weather {
-    place-self: center;
-    padding: 40px;
-    border-radius: 10px;
-    background: linear-gradient(45deg, #e2d4ff, #ADD8E6); /* Light mode background */
-    color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-}
-
-/* Dark Mode */
-.dark-mode {
-    background: linear-gradient(45deg, #2f4680, #500ae4);
-    color: white;
-}
-
-
-.light-mode {
-    background: linear-gradient(45deg, #e2d4ff, #ADD8E6);
-    color: black;
 }
 
 .toggle-btn {
@@ -177,6 +161,6 @@
 }
 
 .toggle-btn img {
-    width: 40px;
+    width: 40px; 
     height: 40px;
 }

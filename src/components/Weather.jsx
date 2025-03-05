@@ -9,15 +9,16 @@ import rain_icon from '../assets/rain.png';
 import snow_icon from '../assets/snow.png';
 import wind_icon from '../assets/wind.png';
 import humidity_icon from '../assets/humidity.png';
-import sun_icon from '../assets/sun.png';
-import moon_icon from '../assets/moon.png';
+
+const UNSPLASH_ACCESS_KEY = "2OKlrd8K3YXK4IptExLjy7nk2UKpjUvjB0KI4DyeRv0";
 
 const Weather = () => {
     const [weatherData, setWeatherData] = useState(null);
     const [forecastData, setForecastData] = useState([]);
     const [suggestions, setSuggestions] = useState([]);
     const [query, setQuery] = useState('');
-    const [darkMode, setDarkMode] = useState(false);
+    const [backgroundImage, setBackgroundImage] = useState('');
+
     const inputRef = useRef(null);
 
     const allIcons = {
@@ -30,6 +31,21 @@ const Weather = () => {
         "11d": drizzle_icon, "11n": drizzle_icon,
         "13d": snow_icon, "13n": snow_icon,
         "50d": cloud_icon, "50n": cloud_icon
+    };
+
+    const fetchBackground = async (location) => {
+        try {
+            const url = `https://api.unsplash.com/photos/random?query=${location}&orientation=landscape&w=1920&h=1080&client_id=${UNSPLASH_ACCESS_KEY}`;
+            const response = await fetch(url);
+            const data = await response.json();
+            if (data.urls && data.urls.full) {
+                setBackgroundImage(data.urls.full);
+            } else {
+                console.warn("Unsplash returned no image.");
+            }
+        } catch (error) {
+            console.error("Error fetching background image:", error);
+        }
     };
 
     const fetchSuggestions = async (input) => {
@@ -77,6 +93,7 @@ const Weather = () => {
             setSuggestions([]);
             setQuery(data.name);
             fetchForecast(data.coord.lat, data.coord.lon);
+            fetchBackground(data.name);
         } catch (error) {
             console.error("Error fetching weather data:", error);
         }
@@ -112,10 +129,10 @@ const Weather = () => {
     };
 
     return (
-        <div className={`weather ${darkMode ? 'dark-mode' : 'light-mode'}`}>
-            <button className="toggle-btn" onClick={() => setDarkMode(!darkMode)}>
-                <img src={darkMode ? sun_icon : moon_icon} alt="Toggle theme" height="24px" width="24px" />
-            </button>
+        <div 
+            className="weather"
+            style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
             <div className="search-bar">
                 <input
                     ref={inputRef}
@@ -156,7 +173,6 @@ const Weather = () => {
                             </div>
                         </div>
                     </div>
-                    {/* Forecast Component */}
                     <ForecastCard forecast={forecastData} />
                 </>
             ) : (
